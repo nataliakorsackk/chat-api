@@ -5,6 +5,7 @@ app.use(express.urlencoded({extend : true}));
 app.use(express.json());
 
 const router = express.Router();
+
 app.use('/', router.get('/', (req, res)=>{
     res.status(200).send("<h1>API-CHAT</h1>")
 }));
@@ -17,9 +18,10 @@ app.use('/', router.get('/sobre', (req, res)=>{
     })
  }));
 
- app.use("/salas", router.get("/salas", (req, res, next)=>{
-    const salaController = require("./controllers/salaControllers");
-    let resp= salaController.get();
+ app.use("/salas", router.get("/salas", async (req, res, next)=>{
+    const salaController = require("./controllers/salaController");
+    const resp = await salaController.get();
     res.status(200).send(resp);
- }))
+ }));
+
 module.exports=app;
