@@ -47,3 +47,14 @@ exports.buscarMensagens = async (idsala, timestamp) => {
       "msgs":mensagens
     };
 };
+
+exports.sair = async (iduser, idsala) => {
+  const sala = await salaModel.buscarSala(idsala);
+  let usuarioModel = require('../model/usuarioModel');
+  let user = await usuarioModel.buscarUsuario(iduser);
+  user.sala = {}
+  await usuarioModel.alterarUsuario(user);
+  if (await usuarioModel.alterarUsuario(user)) {
+      return { msg: "Saiu da sala", timestamp: timestamp = Date.now() };
+    }
+}
