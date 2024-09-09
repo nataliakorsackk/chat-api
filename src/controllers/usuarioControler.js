@@ -1,5 +1,5 @@
 const token = require("../util/token.js");
-const ususaioModel = require("../model/usuarioModel.js");
+const ususaioModel = require("../models/usuarioModel.js");
 
 exports.entrar = async(nick)=>{
     let resp = await ususaioModel.registrarUsuario(nick);

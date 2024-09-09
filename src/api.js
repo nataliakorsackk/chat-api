@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const token = require("./util/token.js");
-const { listarSalas } = require('./model/salaModel.js');
+const { listarSalas } = require('./models/salaModel.js');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());

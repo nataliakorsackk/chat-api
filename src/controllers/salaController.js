@@ -1,4 +1,4 @@
-const salaModel = require('../model/salaModel');
+const salaModel = require('../models/salaModel');
 
 exports.get = async (req, res) => {
     return await salaModel.listarSalas();
@@ -6,7 +6,7 @@ exports.get = async (req, res) => {
 
 exports.entrar = async (iduser, idsala) => {
     const sala = await salaModel.buscarSala(idsala);
-    let usuarioModel = require('../model/usuarioModel');
+    let usuarioModel = require('../models/usuarioModel');
     let user = await usuarioModel.buscarUsuario(iduser);
     console.log(sala);
     console.log(user);
@@ -50,7 +50,7 @@ exports.buscarMensagens = async (idsala, timestamp) => {
 
 exports.sair = async (iduser, idsala) => {
   const sala = await salaModel.buscarSala(idsala);
-  let usuarioModel = require('../model/usuarioModel');
+  let usuarioModel = require('../models/usuarioModel');
   let user = await usuarioModel.buscarUsuario(iduser);
   user.sala = {}
   await usuarioModel.alterarUsuario(user);
