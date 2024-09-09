@@ -12,7 +12,7 @@ const router = express.Router();
 app.use('/', router.get('/sobre', (req, res, next) => {
     res.status(200).send ({
         "nome" : "CHAT-API",
-        "autor" : "talhes rizzis",
+        "autor" : "Natália",
         "versao" : "0.1.0"
     });
 }));
