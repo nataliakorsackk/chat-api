@@ -92,4 +92,4 @@ app.use("/", router.delete("/sair", async (req, res) => {
 
 }))
 
-module.exports = app;
+module.exports = app;c
